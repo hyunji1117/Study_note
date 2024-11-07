@@ -1,0 +1,20 @@
+# [공통] CSS 전처리기 사용법
+====================== 
+ 
+1. terminal: 
+npm init -y 으로 npm 프로젝트 생성 
+npm i -D parcel-bundler 개발 의존성 모듈로 설정 
+ 
+```
+에러 해결 방법 
+-----------
+npm ERR! A complete log of this run can be found in :
+C : 파일경로-debug.log 
+
+npm cache 설치로 오류 해결
+----------------------
+npm install --cache 
+
+참고자료 "https://velog.io/@s_keyyy/Error-A-complete-log-of-this-run-can-be-found-in"
+npm 모듈(패키지) 관리 명령어 "https://blog.naver.com/mgveg/221872307170"
+```

@@ -18,3 +18,11 @@ npm install --cache
 참고자료 "https://velog.io/@s_keyyy/Error-A-complete-log-of-this-run-can-be-found-in"
 npm 모듈(패키지) 관리 명령어 "https://blog.naver.com/mgveg/221872307170"
 ```
+  
+이어서 package.json 파일에 script 내용을 아래와 같이 바꾸기  
+```
+"scripts": {
+    "dev": "parcel main.html",
+    "build": "parcel build main.html"
+  }
+```

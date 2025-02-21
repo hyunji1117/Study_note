@@ -1,5 +1,5 @@
 # [CSS] 브라우저 간 스타일 차이를 줄이기 (reset.css, normalize.css 차이)
-[CSS Reset 개념](https://brunch.co.kr/@euid/2)
+[CSS Reset 개념][https://brunch.co.kr/@euid/2]
 
 웹 표준에 의거하여 각각의 벤더사들(e.g.애플, 구글 ect.)이 브라우저를 제작할 때 조금씩 다른 결과물이 나올 수 있다.
 i.e. 브라우저에서 제공하는 Css 스타일을 초기화 하고 작업을 시작하는 것이 좋다.

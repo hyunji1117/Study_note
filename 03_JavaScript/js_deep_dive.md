@@ -339,7 +339,212 @@ function getUserData() {}   // 동사+명사
 표현식이 아닌 문은 값으로 평가할 수 없으므로 변수에 할당하면 에러 발생
 
 
+---
 
+
+# 06 데이터 타입
+
+![alt text](image-11.png)
+
+## 6-1. 숫자 타입
+
+모든 수를 실수로 처리한다. 
+```js
+// 모두 숫자 타입
+var integer = 10; // 정수
+var double = 10.12; // 실수
+var negative =-20; // 음의 정수
+```
+
+```js
+// 숫자 타입은 모두 실수로 처리
+console.log (1 === 1.0); // true
+```
+
+## 6-2. 문자열 타입
+
+```js
+// 문자열 타입
+var string;
+string = '문자열'; // 작은따옴표 (자바스크립트 일반적 표기법)
+string = "문자열"; // 큰따옴표
+string = `문자열` ; // 백틱(ES6)
+```
+
+## 6-3. 템플릿 리터럴
+
+멀티라인 문자열(multi-line string)
+표현식 삽입(expression interpolation)
+태그드 템플릿(tagged template) 등 편리한 문자열 처리 기능 제공
+
+```js
+var template = `Template literal` ;
+console.log(template); // Template literal
+```
+
+### 6-3-1. 멀티라인 문자열
+
+문자열 줄바꿈은 백슬래시(\)로 시작하는 이스케이프 시퀀스(escape sequence) 사용해야 한다.
+
+![alt text](image-12.png)
+
+```js
+var template = '‹ul>\n\t<li><a href="#">Home</a></li>\n</ul>';
+console.log(template);
+```
+
+```html
+<!-- 출력 결과 -->
+<ul>
+	<li>
+		<a href="#">Home</a>
+	</li>
+</ul>
+```
+
+### 6-3-2. 표현식 삽입
+
+```js
+var first = 'Ung-mo';
+var last = 'Lee';
+
+// ES5: 문자열 연결
+console.log('My name is ' + first + ' ' + last + '.'); // My name is Ung-mo Lee.
+```
+
+
+```js
+var first = 'Ung-mo';
+var last = 'Lee';
+
+// ES6: 표현식 삽입
+console.log(`My name is ${first} ${last}.`); // My name is Ung-mo Lee.
+```
+
+표현식을 삽입하려면 ${ }으로 표현식을 감싼다. 
+표현식의 평가 결과가 문자열이 아니더라도 문자열로 타입이 강제로 변환되어 삽입
+
+
+```js
+console.log(`1 + 2 = ${1 + 2}`); // 1+ 2 = 3
+```
+
+표현식 삽입은 반드시 템플릿 리터럴 내에서 사용
+
+```js
+console.log('1 + 2 =${1 + 2}'); // 1 + 2=$11 + 2}
+```
+
+## 6-4. 불리언 타입
+
+논리적 참 거짓 나타낸다. 
+
+조건문에서 자주 사용
+
+## 6-5. undefined 타입
+
+변수를 선언한 이후 값을 할당하지 않은 변수 참조 하면 undefined 반환
+
+## 6-6. null 타입
+
+## 6-7. 심벌 타입
+
+변경 불가능한 원시 타입을 값
+
+다른 값과 중복되지 않는 유일무이한 값
+
+이름이 충돌할 위험이 없는 객체의 유일한 프로퍼티 키를 만들기 위해 사용
+
+```js
+// 심벌 값 생성
+var key = Symbol ( 'key');
+console.log(typeof key); // symbol
+
+// 객체 생성
+var obj = 1};
+
+// 이름이 충돌할 위험이 없는 유일무이한 값인 심벌을 프로퍼티 키로 사용한다.
+obj[key] = 'value';
+console. log(obj[key]); // value
+```
+
+## 6-8. 객체 타입
+
+자바스크립트는 객체 기반 언어이다. 
+
+## 6-9. 데이터 타입의 필요성
+
+### 6-9-1. 데이터 타입에 의한 메모리 공간의 확보와 참조
+
+몇 바이트의 메모리 공간을 사용해야 낭비와 손실 없이 값을 저장할 수 있 는지 알아야 한다.
+
+```js
+var score = 100;
+```
+
+위 코드 실행
+(컴퓨터) 100을 저장하기 위한 메모리 공간 확보
+확보된 메모리에 숫자 100을 2진수로 저장
+
+메모리 공간의 크기를 알아야 한다. 
+변수에 할당되는 값의 데이터 타입에 따라 확보해야 할 메모리 공간의 크기 결정
+
+### 6-9-2. 데이터 타입에 의한 값의 해석
+
+메모리에 읽어드린 2진수 해석
+
+모든 값은 데이터 타입을 가지며, 메모리에 비트의 나열(2진수)로 저장
+메모리에 저장된 값은 데이터 타입에 따라 다르게 해석
+(예: 메모리에 저장된 값 0100 0001을 숫자로 해석하면 65지만 문자열로 해석하면 'A'다.)
+
+
+데이터 타입이 필요한 이유 : 
+- ﻿﻿값을 저장할 때 확보해야 하는 메모리 공간의 크기를 결정하기 위해
+- ﻿﻿값을 참조할 때 한 번에 읽어 들여야 할 메모리 공간의 크기를 결정하기 위해
+- ﻿﻿메모리에서 읽어 들인 2진수를 어떻게 해석할지 결정하기 위해
+
+## 6-10. 동적 타이핑
+
+### 6-10-1. 동적 타입 언어와 정적 타입 언어
+
+typeof 연산자는 연산자 뒤에 위치한 피연산자의 데이터 타입을 문자열로 반환한다. 
+
+```js
+var foo;
+console.log(typeof foo); // undefined
+
+foo = 3;
+console.log(typeof foo); // number
+
+foo = 'Hello';
+console.log(typeof foo); // string
+
+foo = true;
+console.log(typeof foo); // boolean
+
+foo = null;
+console.log(typeof foo); // object
+
+foo = Symbol();
+console. log(typeof foo); // symbol
+
+foo = {}; // 객체
+console.log(typeof foo); // object
+
+foo = []; // 배열
+console.log(typeof foo); // object
+
+foo = function () {}; // 함수
+console.log(typeof foo); // function
+```
+
+자바스크립트는 변수의 타입이 할당 시점에 결정되고
+재할당으로 언제든 변경될 수 있는 동적 타이핑 특징을 가진 동적 타입 언어이다. 
+
+### 6-10-2. 동적 타입 언어와 변수
+
+모든 소프트웨어 아키텍처에서 트레이드 오프가 존재하며
+동적 타입 언어는 편리하지만 완벽한 해결책은 아니다.
 
 
 

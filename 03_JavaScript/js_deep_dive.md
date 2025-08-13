@@ -31,7 +31,7 @@
 사람이 이해할 수 있는 약속된 문구(syntax) 문법
 
 일종의 번역기 (compiler / interpreter)
-![alt text](image-4.png)
+![alt text](/04_Assets/image-4.png)
 
 자연어 : 
 인간이 자연스럽게 발달시킨 언어 (예: 영어, 프랑스어)
@@ -141,7 +141,7 @@ Node.js는 브라우저 외부에서 JavaScript를 실행할 수 있는 런타�
 
 ### 3-2-1. 개발자 도구
 
-![alt text](image-3.png)
+![alt text](/04_Assets/image-3.png)
 
 ### 3-2-2. 콘솔
 
@@ -150,11 +150,11 @@ console.log // 메서드를 사용하여 결과를 콘솔에 출력하는 함수
 ```
 
 자바스크립트 코드를 직접 입력해 그 결과를 확인할 수 있는 REPL(Read Eval Print Loop: 입력 수 행 출력 반복) 환경으로 사용 가능
-![alt text](image-2.png)
+![alt text](/04_Assets/image-2.png)
 
 ### 3-2-3. 브라우저에서 자바스크립트 실행
 
-![alt text](image-1.png)
+![alt text](/04_Assets/image-1.png)
 
 
 ### 3-2-4. 디버깅
@@ -209,7 +209,7 @@ CPU를 사용해 연산
 > 메모리 셀 하나의 크기는 1바이트(8 비트)
 > 메모리 셀의 크기(1바이트 단위)로 데이터를 저장(write)하거나 읽어(read)들인다.
 
-![alt text](image-5.png)
+![alt text](/04_Assets/image-5.png)
 
 위 예제의 숫자 값 10과 20은 메모리 상의 임의의 위치(메모리 주소)에 기억(저장)
 
@@ -219,7 +219,7 @@ CPU는 이 값을 읽어 들여 연산 수행
 
 다음 그림에 는 메모리에 저장된 숫자 값을 편의상 10진수로 표기했다. 하지만 메모리에 저장되는 모든 값은 2진수로 저 장된다는 것
 
-![alt text](image-6.png)
+![alt text](/04_Assets/image-6.png)
 
 만약 30을 재사용하고 싶다면
 
@@ -286,7 +286,7 @@ const MAX_SIZE = 100;       // 상수
 function getUserData() {}   // 동사+명사
 ```
 
-![alt text](image-7.png)
+![alt text](/04_Assets/image-7.png)
 
 
 ---
@@ -305,7 +305,7 @@ function getUserData() {}   // 동사+명사
 
 약속된 기호로 값을 생성하는 표기법
 
-![alt text](image-8.png)
+![alt text](/04_Assets/image-8.png)
 
 ## 5-3. 표현식
 
@@ -313,7 +313,7 @@ function getUserData() {}   // 동사+명사
 
 표현식이 평가되면 새로운 값을 생성 또는 기존 값 참조 한다. 
 
-![alt text](image-9.png)
+![alt text](/04_Assets/image-9.png)
 
 ## 5-4. 문
 
@@ -325,7 +325,7 @@ function getUserData() {}   // 동사+명사
 > 프로그래밍 : 
 >문을 작성하고 순서에 맞게 나열하는 것
 
-![alt text](image-10.png)
+![alt text](/04_Assets/image-10.png)
 
 ## 5-5. 세미콜론과 세미콜론 자동 삽입 기능
 
@@ -344,7 +344,7 @@ function getUserData() {}   // 동사+명사
 
 # 06 데이터 타입
 
-![alt text](image-11.png)
+![alt text](/04_Assets/image-11.png)
 
 ## 6-1. 숫자 타입
 
@@ -386,7 +386,7 @@ console.log(template); // Template literal
 
 문자열 줄바꿈은 백슬래시(\)로 시작하는 이스케이프 시퀀스(escape sequence) 사용해야 한다.
 
-![alt text](image-12.png)
+![alt text](/04_Assets/image-12.png)
 
 ```js
 var template = '‹ul>\n\t<li><a href="#">Home</a></li>\n</ul>';
@@ -547,4 +547,301 @@ console.log(typeof foo); // function
 동적 타입 언어는 편리하지만 완벽한 해결책은 아니다.
 
 
+---
 
+
+# 07 연산자
+
+## 7-1. 산술 연산자
+
+### 7-1-1. 이항 산술 연산자
+
+2개의 피연산자를 산술 연산
+
+피연산자의 값이 바뀌는 경우가 없고, 항상 새로운 값을 만든다. 
+
+```js
+5+ 2; // 7
+5 - 2; // 3
+5 * 2; // 10
+5 / 2; // 2.5
+5 % 2; // 1
+```
+
+### 7-1-2. 단항 산술 연산자
+
+1개의 피연산자를 산술연산하여 숫자 값을 만든다. 
+
+![alt text](/04_Assets/image.png)
+
+++/--
+전위 증가/감소 연산자
+먼저 피연산자의 값을 증가/감소 시킨 후 다른 연산자 수행
+
+```js
+var x = 5, result;
+
+// 선할당 후증가(postfix increment operator)
+result = x++;
+console. log(result, x); // 5 6
+
+// 선증가 후할당(prefix increment operator)
+result = ++x;
+console.log(result, x); // 77
+
+// 선할당 후감소(postfix decrement operator)
+result = X--;
+console.log(result, x); // 7 6
+
+// 선감소 후할당(prefix decrement operator)
+result = --x;
+console.log(result, x); // 5 5
+```
+
+```js
+var x = '1';
+
+// 문자열을 숫자로 타입 변환한다.
+console.log(+x); // 1
+// 부수 효과는 없다.
+console.log(x); // "1"
+
+// 불리언 값을 숫자로 타입 변환한다.
+x = true;
+console.log(+x); // 1
+// 부수 효과는 없다.
+console.log(x); // true
+
+// 불리언 값을 숫자로 타입 변환한다.
+x = false;
+console.log(+x); // 0
+// 부수 효과는 없다.
+console.log(x); // false
+
+// 문자열을 숫자로 타입 변환할 수 없으므로 NaN을 반환한다.
+x = 'Hello' ;
+console.log(+x); // NaN
+// 부수 효과는 없다.
+console. log(x); // "Hello"
+```
+
+### 7-1-3. 문자열 연결 연산자
+
++연산자는 피연산자 중 하나 이상의 문자열인 경우 연결 연산자로 동작
+
+```js
+// 문자열 연결 연산자
+'1' + 2; // '12'
+1 + '2'; // '12'
+
+// 산술 연산자
+1 + 2; // 3
+
+// true는 1로 타입 변환된다.
+1 + true; // 2
+
+// false는 0으로 타입 변환된다.
+1 + false; // 1
+
+// null은 0으로 타입 변환된다.
+1 + null; // 1
+
+// undefined는 숫자로 타입 변환되지 않는다.
++undefined; // NaN
+1 + undefined; // NaN
+```
+
+## 7-2. 할당 연산자
+
+우항에 있는 피연산자의 평가 결과를 좌항에 있는 변수에 할당
+
+```js
+var x;
+x = 10;
+console.log(x); // 10
+
+x += 5; // x = x + 5;
+console.log(x); // 15
+
+x -= 5; // x = x - 5;
+console.log(x); // 10
+
+x *= 5; // x = x * 5;
+console.log(x); // 50
+
+x /= 5; // x = x / 5;
+console.log(x); // 10
+
+x %= 5; // x = x % 5;
+console.log(x); // 0
+
+var str = 'My name is ';
+
+// 문자열 연결 연산자
+str += 'Lee'; // str = str + 'Lee';
+console.log(str); // 'My name is Lee'
+```
+
+## 7-3. 비교 연산자
+
+좌항과 우항의 피연산자를 비교한 다음 그 결과를 불리언 값으로 반환
+
+if 문이나 for 문과 같은 제어문의 조건식에서 주로 사용
+
+### 7-3-1. 동등/일치 비교 연산자
+
+좌항과 우항의 피연산자가 같은 값으로 평가되는 지 비교해 불리언 값을 반환
+
+비교 연산자 - 느슨한 비교
+일치 비교 연산자 - 엄격한 비교
+
+![alt text](/04_Assets/image-13.png)
+
+동등 비교 연산자 ==
+좌항과 우항의 피연산자를 비교할 때 먼저 암묵적 타입 변환을 통해 타입을 일치시 킨 후 같은 값인지 비교
+
+```js
+// 동등 비교
+5 == 5; // true
+
+// 타입은 다르지만 암묵적 타입 변환을 통해 타입을 일치시키면 동등하다.
+5 == '5'; // true
+```
+
+연산자는 예측하기 어려운 결과를 만들어낸다. 따라서 동등 비교 연산자는 사용하지 않는 편이 좋다.
+
+일치 비교 연산자에서 NaN을 주의
+
+```js
+// NaN은 자신과 일치하지 않는 유일한 값이다.
+NaN === NaN; // false
+```
+
+숫자가 NaN인지 조사하려면 빌트인 함수 Number. isNaN 을 사용한다.
+
+```js
+// Number. isNaN 함수는 지정한 값이 NaN인지 확인하고 그 결과를 불리언 값으로 반환한다.
+Number. isNaN(NaN); // true
+Number. isNaN(10); // false
+Number. isNaN(1 + undefined); // true
+```
+
+일치 비교 연산자에서 0을 주의
+
+자바스크립트에는 양의 0과 음의 0이 있는데 이들을 비교하면 true를 반환한다. 
+
+```js
+// 양의 0과 음의 0의 비교. 일치 비교/동등 비교 모두 결과는 true다.
+0 === -0; // true
+0 == -0; // true
+```
+
+```js
+-0 === +0; // true
+Object.is(-0, +0); // false
+
+NaN === NaN; // false
+Object.is(NaN, NaN); // true
+```
+
+### 7-3-2. 대소 관계 비교 연산자
+
+## 7-4. 삼항 조건 연산자
+
+![alt text](/04_Assets/image-14.png)
+
+## 7-5. 논리 연산자
+
+드 모르간의 법칙
+복잡한 표현식을 좀 더 가독성 좋은 표현식으로 변환
+
+```js
+!(x || y) === (!x && !y)
+!(x && y) === (!x || !y)
+```
+
+## 7-6. 쉼표 연산자
+
+왼쪽 피연산자부터 차례대로 피연산자를 평가하고 마지막 피연산자의 평가가 끝나면 마지 막 피연산자의 평가 결과 반환
+
+```js
+var x, y, z;
+x = 1, y = 2, z = 3; // 3
+```
+
+## 7-7. 그룹 연산자
+
+소괄호()로 피연산자를 감싸는 그룹 연산자
+
+연산자의 우선순위를 조절 가능 (가장 높은 우선순위)
+
+## 7-8. typeof 연산자
+
+데이터 타입을 문자열로 반환
+
+```js
+typeof "";           // "string"
+typeof 1;            // "number"
+typeof NaN;          // "number"
+typeof true;         // "boolean"
+typeof undefined;    // "undefined"
+typeof Symbol();     // "symbol"
+typeof null;         // "object"      // JS 설계상의 버그로 알려진 결과
+typeof [];           // "object"      // 배열도 객체 타입
+typeof {};           // "object"
+typeof new Date();   // "object"
+typeof /test/gi;     // "object"      // 정규 표현식도 객체
+typeof function() {}; // "function"
+```
+
+```js
+typeof null;         // "object" 
+```
+자바 스크립트의 첫 번째 버전의 버그다. 하지만 기존 코드에 영향을 줄 수 있기 때문에 아직까지 수정되지 못하고 있다.
+
+값이 nuLL 타입인지 확인할 때 일치 연산자== 를 사용하기
+
+```js
+var foo = null;
+
+typeof foo === null; // false 
+foo === null; // true
+```
+
+## 7-9. 지수 연산자
+
+```js
+2 ** 2;     // 4
+2 ** 2.5;   // 5.65685424949238
+2 ** 0;     // 1
+2 ** -2;    // 0.25
+```
+
+지수 연산자가 도입되기 이전에는 Math.pow 메서드 사용
+
+```js
+Math.pow(2, 2);     // 4
+Math.pow(2, 2.5);   // 5.65685424949238
+Math.pow(2, 0);     // 1
+Math.pow(2, -2);    // 0.25
+```
+
+지수 연산자가 Math.pow 메서드 보다 가독성이 좋은 경우
+
+```js
+// 지수 연산자의 결합 순서는 우항에서 좌항이다. 즉, 우결합성을 갖는다.
+2 ** (3 ** 2); // 512
+Math. pow(2, Math. pow(3, 2)); // 512
+```
+
+![alt text](/04_Assets/image-15.png)
+
+## 7-10. 그 외의 연산자
+
+![alt text](/04_Assets/image-16.png)
+
+## 7-11. 연산자의 부수 효과
+
+## 7-12. 연산자 우선순위
+
+![alt text](/04_Assets/image-17.png)
